@@ -13,6 +13,31 @@ def merge(arrA, arrB):
 
 def merge_sort(arr):
     # Your code here
+    if len(arr) > 1:
+        midpoint = len(arr) // 2
+        left = arr[:midpoint]
+        right = arr[midpoint:]
+        merge_sort(left)
+        merge_sort(right)
+        i = j = k = 0
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k += 1
+
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
 
     return arr
 
@@ -24,7 +49,9 @@ def merge_sort(arr):
 
 def merge_in_place(arr, start, mid, end):
     # Your code here
+    pass
 
 
 def merge_sort_in_place(arr, l, r):
     # Your code here
+    pass
